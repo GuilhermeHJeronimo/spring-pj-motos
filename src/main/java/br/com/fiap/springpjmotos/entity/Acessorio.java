@@ -36,27 +36,24 @@ public class Acessorio {
     private Double preco;
 
     @ManyToMany(fetch = FetchType.EAGER,
-    cascade = {CascadeType.PERSIST})
+            cascade = {CascadeType.PERSIST})
     @JoinTable(
             name = "TB_ACESSORIO_VEICULO",
             joinColumns = {
                     @JoinColumn(name = "ACESSORIO",
-                    referencedColumnName = "ID_ACESSORIO",
-                    foreignKey = @ForeignKey(name ="FK_VEICULO_ACESSORIO")
-            )
+                            referencedColumnName = "ID_ACESSORIO",
+                            foreignKey = @ForeignKey(name = "FK_VEICULO_ACESSORIO")
+                    )
             },
             inverseJoinColumns = {
                     @JoinColumn(
-                    name = "VEICULO",
-                    referencedColumnName = "ID_VEICULO",
-                    foreignKey = @ForeignKey(name = "FK_VEICULOS_ACESSORIO")
+                            name = "VEICULO",
+                            referencedColumnName = "ID_VEICULO",
+                            foreignKey = @ForeignKey(name = "FK_VEICULOS_ACESSORIO")
                     )
             }
     )
-    private Set<Veiculo> acessorios = new LinkedHashSet<>();
-
-
-
+    private Set<Veiculo> acessorio = new LinkedHashSet<>();
 
 }
 

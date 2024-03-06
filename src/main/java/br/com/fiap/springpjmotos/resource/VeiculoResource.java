@@ -1,7 +1,6 @@
 package br.com.fiap.springpjmotos.resource;
 
 import br.com.fiap.springpjmotos.entity.Acessorio;
-import br.com.fiap.springpjmotos.entity.Loja;
 import br.com.fiap.springpjmotos.entity.Veiculo;
 import br.com.fiap.springpjmotos.repository.AcessorioRepository;
 import br.com.fiap.springpjmotos.repository.LojaRepository;
@@ -29,28 +28,20 @@ public class VeiculoResource {
     private AcessorioRepository acessorioRepository;
 
     @GetMapping
-    public List<Veiculo> findAll(){
+    public List<Veiculo> findAll() {
         return repo.findAll();
     }
 
     @Transactional
     @PostMapping
-    public Veiculo persist(@RequestBody Veiculo veiculo){
+    public Veiculo persist(@RequestBody Veiculo veiculo) {
         return repo.save(veiculo);
     }
+
     @GetMapping(value = "/{id}")
-    public Veiculo findAll(@PathVariable("id") Long id) {
+    public Veiculo findVeiculoById(@PathVariable("id") Long id) {
         var ret = repo.findById(id);
-        return ret.get();
+        return ret.orElse(null);
     }
-    @GetMapping(value = "/{id}/acessorios")
-    public Acessorio findAcessorios(@PathVariable("id") Long id) {
-        var ret = acessorioRepository.findById(id);
-        return ret.get();
-    }
-
-
-
-
 
 }

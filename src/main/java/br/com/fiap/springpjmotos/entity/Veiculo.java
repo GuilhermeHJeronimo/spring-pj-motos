@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -37,8 +38,4 @@ public class Veiculo {
 
     @Column(name = "CILINDRADAS")
     private Short cilindradas;
-
-
-
-
 }
