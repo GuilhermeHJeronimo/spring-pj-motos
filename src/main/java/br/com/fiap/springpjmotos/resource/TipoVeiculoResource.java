@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "localhost/loja")
+@RequestMapping(value = "/tipo-veiculo")
 public class TipoVeiculoResource {
     @Autowired
     private VeiculoRepository repo;
